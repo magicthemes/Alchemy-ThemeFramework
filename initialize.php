@@ -43,21 +43,20 @@ class Alchemy
         // TODO: One day, this should detect the environment for WordPress, Nooku 1.0 and other systems.
 		if (_JEXEC) 
 		{
-			self::$_root = realpath(dirname(__FILE__)).DIRECTORY_SEPARATOR.'framework';
+			self::$_root = realpath(dirname(__FILE__));
 			$jversion = explode('.', JVERSION);array_pop($jversion);
 			self::$_system = 'joomla'.implode('', $jversion);
 		}
 
 		self::$_versions = array($version);
-		
+
 		// Put the $version on top of the stack
 		foreach(scandir(self::$_root.DS.'versions') as $dir) 
 		{
 			if ($dir == '.' OR $dir == '..') {
 				continue;
 			}
-
-			if ( ! $version OR (int)$version > (int)$dir) 
+			if ( ! $version OR (int)$version > (int)$dir OR $version === 'latest') 
 			{
 				self::$_versions[] = $dir;
 			}
