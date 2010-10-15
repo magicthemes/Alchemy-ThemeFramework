@@ -9,10 +9,13 @@ class Alchemy_System_Joomla15_Config
 	    // Custom keys based on Joomla's config
         switch ($key) {
             case 'template_path':
-                return Alchemy::context()->baseurl.'/templates/'.Alchemy::context()->template;
+                return JURI::base().'templates/'.Alchemy::context()->template;
             break;
             case 'media_path':
-                return JURI::base(TRUE).'/media/alchemy';
+                return JURI::base().'media/alchemy';
+            break;
+            case 'base_url':
+                return JURI::base();
             break;
         }
 	    

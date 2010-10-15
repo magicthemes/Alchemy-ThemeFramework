@@ -39,8 +39,13 @@ class Alchemy_HTML
 
         if (Alchemy::config('development_mode')) 
         {   
-            $head[] = '<link rel="stylesheet/less" type="text/css" href="'.$media_path.'/less/initialize.less" title="flawless_css" />';
-            $head[] = '<link rel="stylesheet/less" type="text/css" href="'.$template_path.'/css/development.less" title="flawless_css" />';
+            $head[] = '<style type="text/less">';
+            $head[] = '@media_url: "'.$media_path.'";';
+            $head[] = '@template_url: "'.$template_path.'";';
+            $head[] = '@import "'.$media_path.'/less/initialize.less";';
+            $head[] = '@import "'.$template_path.'/css/development.less";';
+            $head[] = '</style>';
+
             $head[] = '<script type="text/javascript">var less = {}; less.env = "development";</script>';
             $head[] = '<script type="text/javascript" src="'.$media_path.'/js/less.js"></script>';
             //$head[] = '<script type="text/javascript">less.watch()</script>';
