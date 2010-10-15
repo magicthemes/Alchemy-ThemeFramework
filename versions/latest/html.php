@@ -39,23 +39,23 @@ class Alchemy_HTML
 
         if (Alchemy::config('development_mode')) 
         {   
+            $head[] = '<link rel="stylesheet/less" type="text/css" href="'.$media_path.'/less/initialize.less" title="flawless_css" />';
             $head[] = '<link rel="stylesheet/less" type="text/css" href="'.$template_path.'/css/development.less" title="flawless_css" />';
             $head[] = '<script type="text/javascript">var less = {}; less.env = "development";</script>';
             $head[] = '<script type="text/javascript" src="'.$media_path.'/js/less.js"></script>';
-            $head[] = '<script type="text/javascript">less.watch()</script>';
+            //$head[] = '<script type="text/javascript">less.watch()</script>';
         }
         else
         {
             $head[] = '<link rel="stylesheet" type="text/css" href="'.$template_path.'/css/template.css" />';
         }
-        
-        if (Alchemy::config('ie_compatibility')) 
-        {
-            $head[] = '<!--[if lt IE 9]>';
-            $head[] = '<script type="text/javascript">var IE7_PNG_SUFFIX = ".png"</script>';
-            $head[] = '<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>';
-            $head[] = '<![endif]-->';
-        }
+
+        // IE7-js for improving IE
+        $head[] = '<!--[if lt IE 9]>';
+        $head[] = '<script type="text/javascript">var IE7_PNG_SUFFIX = ".png"</script>';
+        $head[] = '<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>';
+        $head[] = "<script>!IE7.loaded && document.write('<script src=\"".$media_path."/js/ie9.js\"><\/script>')</script>";
+        $head[] = '<![endif]-->';
         
         self::$_groups['head'] = $head;
         
