@@ -35,19 +35,20 @@ class Alchemy_HTML
         }
         
         // Include Modernizr and browser selector
-        $head[] = '<script type="text/javascript" src="'.$media_path.'/js/initialize.js"></script>';
+        $head[] = '<script type="text/javascript" src="'.$media_path.'/alchemy/js/initialize.js"></script>';
 
         if (Alchemy::config('development_mode')) 
         {   
-            $head[] = '<style type="text/less">';
+            $head[] = '<style type="text/less" id="mt-lesscss">';
             $head[] = '@media_url: "'.$media_path.'";';
             $head[] = '@template_url: "'.$template_path.'";';
-            $head[] = '@import "'.$media_path.'/less/initialize.less";';
+            $head[] = '@import "'.$media_path.'/alchemy/less/initialize.less";';
             $head[] = '@import "'.$template_path.'/css/development.less";';
             $head[] = '</style>';
-
+            
+            //$head[] = '<link rel="stylesheet/less" type="text/css" href="'.$template_path.'/css/development.less" title="flawless_css" />';
             $head[] = '<script type="text/javascript">var less = {}; less.env = "development";</script>';
-            $head[] = '<script type="text/javascript" src="'.$media_path.'/js/less.js"></script>';
+            $head[] = '<script type="text/javascript" src="'.$media_path.'/alchemy/js/less.js"></script>';
             //$head[] = '<script type="text/javascript">less.watch()</script>';
         }
         else

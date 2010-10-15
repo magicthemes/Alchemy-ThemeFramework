@@ -12,7 +12,7 @@ class Alchemy_System_Joomla15_Config
                 return JURI::base().'templates/'.Alchemy::context()->template;
             break;
             case 'media_path':
-                return JURI::base().'media/alchemy';
+                return JURI::base().'media';
             break;
             case 'base_url':
                 return JURI::base();
