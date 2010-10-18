@@ -47,7 +47,7 @@ class Alchemy_HTML
             $head[] = '</style>';
             
             //$head[] = '<link rel="stylesheet/less" type="text/css" href="'.$template_path.'/css/development.less" title="flawless_css" />';
-            $head[] = '<script type="text/javascript">var less = {}; less.env = "development";</script>';
+            $head[] = '<script type="text/javascript">var less = {\'env\':\'development\'};</script>';
             $head[] = '<script type="text/javascript" src="'.$media_path.'/alchemy/js/less.js"></script>';
             //$head[] = '<script type="text/javascript">less.watch()</script>';
         }
