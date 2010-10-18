@@ -39,14 +39,24 @@ class Alchemy_HTML
 
         if (Alchemy::config('development_mode')) 
         {   
+            /*
             $head[] = '<style type="text/less" id="mt-lesscss">';
             $head[] = '@media_url: "'.$media_path.'";';
             $head[] = '@template_url: "'.$template_path.'";';
             $head[] = '@import "'.$media_path.'/alchemy/less/initialize.less";';
             $head[] = '@import "'.$template_path.'/css/development.less";';
             $head[] = '</style>';
+            */
             
-            //$head[] = '<link rel="stylesheet/less" type="text/css" href="'.$template_path.'/css/development.less" title="flawless_css" />';
+            $head[] = '<script type="text/javascript">';
+            $head[] = 'var less = {"env": "development"};';
+            $head[] = 'var less_variables = {';
+            $head[] = 'media_url: "'.$media_path.'",';
+            $head[] = 'template_url: "'.$template_path.'"';
+            $head[] = '};';
+            $head[] = '</script>';
+            
+            $head[] = '<link rel="stylesheet/less" type="text/css" href="'.$template_path.'/css/development.less" title="mt-alchemy-css" />';
             $head[] = '<script type="text/javascript">var less = {\'env\':\'development\'};</script>';
             $head[] = '<script type="text/javascript" src="'.$media_path.'/alchemy/js/less.js"></script>';
             //$head[] = '<script type="text/javascript">less.watch()</script>';

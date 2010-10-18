@@ -66,11 +66,12 @@ class Alchemy
 	}
 	
 	/**
-	 * Loads, instantiates and returns Alchemy classes
+	 * Loads, instantiates and returns Alchemy  helper classes
 	 *
 	 * Class names are converted to file names by making the class name
 	 * lowercase and converting underscores to slashes:
 	 *
+	 * @example
 	 *     // Loads versions/[version]/helpers/html.php
 	 *     Alchemy::call('helpers/html');
 	 *
