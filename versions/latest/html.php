@@ -41,16 +41,15 @@ class Alchemy_HTML
         {
             $head[] = '<script type="text/javascript">';
             $head[] = 'var less = {"env": "development"};';
-            $head[] = 'var less_variables = {';
+            $head[] = 'less.variables = {';
             $head[] = 'media_url: "'.$media_path.'",';
             $head[] = 'template_url: "'.$template_path.'"';
             $head[] = '};';
             $head[] = '</script>';
             
             $head[] = '<link rel="stylesheet/less" type="text/css" href="'.$template_path.'/css/development.less" title="mt-alchemy-css" />';
-            $head[] = '<script type="text/javascript">var less = {\'env\':\'development\'};</script>';
             $head[] = '<script type="text/javascript" src="'.$media_path.'/alchemy/js/less.js"></script>';
-            //$head[] = '<script type="text/javascript">less.watch()</script>';
+            $head[] = '<script type="text/javascript">less.watch()</script>';
         }
         else
         {
@@ -58,10 +57,9 @@ class Alchemy_HTML
         }
 
         // IE7-js for improving IE
-        $head[] = '<!--[if lt IE 9]>';
+        $head[] = '<!--[if lt IE 8]>';
         $head[] = '<script type="text/javascript">var IE7_PNG_SUFFIX = ".png"</script>';
-        $head[] = '<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>';
-        $head[] = "<script>!IE7.loaded && document.write('<script src=\"".$media_path."/js/ie9.js\"><\/script>')</script>";
+        $head[] = '<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>';
         $head[] = '<![endif]-->';
         
         self::$_groups['head'] = $head;
